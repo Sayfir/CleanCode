@@ -1,8 +1,8 @@
-import Planes.experimentalPlane;
-import models.MilitaryType;
 import Planes.MilitaryPlane;
 import Planes.PassengerPlane;
 import Planes.Plane;
+import Planes.experimentalPlane;
+import models.MilitaryType;
 
 import java.util.*;
 
@@ -18,7 +18,11 @@ public class Airport {
     public List<PassengerPlane> getPasPl() {
         List<? extends Plane> l = this.planes;
         List<PassengerPlane> x = new ArrayList<>();
-        for (Plane p : l) {if (p instanceof PassengerPlane) {x.add((PassengerPlane) p);}}
+        for (Plane p : l) {
+            if (p instanceof PassengerPlane) {
+                x.add((PassengerPlane) p);
+            }
+        }
         return x;
     }
 
@@ -27,11 +31,11 @@ public class Airport {
         for (Plane plane : planes) {
             if (plane instanceof MilitaryPlane) {
                 militaryPlanes.add((MilitaryPlane) plane);
-            } //if
+            }
             else {
 
-            } // else
-        } //for
+            }
+        }
         return militaryPlanes;
     }
 
@@ -43,12 +47,6 @@ public class Airport {
                 planeWithMaxCapacity = passengerPlanes.get(i);
             }
         }
-
-
-
-
-
-
         return planeWithMaxCapacity;
     }
 
@@ -92,21 +90,18 @@ public class Airport {
             public int compare(Plane o1, Plane o2) {
                 return o1.Get_Max_Flight_Distance() - o2.Get_Max_Flight_Distance();
             }
-        });
+                }
+        );
         return this;
     }
 
-
-    /**
-     * Sorts by max speed
-     * @return Airport
-     */
     public Airport sortByMaxSpeed() {
         Collections.sort(planes, new Comparator<Plane>() {
             public int compare(Plane o1, Plane o2) {
                 return o1.getMS() - o2.getMS();
             }
-        });
+                }
+        );
         return this;
     }
 
@@ -138,9 +133,7 @@ public class Airport {
                 '}';
     }
 
-    //Constructor
     public Airport(List<? extends Plane> planes) {
         this.planes = planes;
     }
-
 }
