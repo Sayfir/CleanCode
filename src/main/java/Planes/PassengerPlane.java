@@ -3,6 +3,7 @@ package Planes;
 import java.util.Objects;
 
 public class PassengerPlane extends Plane{
+
     private int passengersCapacity;
 
     public PassengerPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, int passengersCapacity) {
@@ -20,7 +21,8 @@ public class PassengerPlane extends Plane{
                 ", passengersCapacity=" + passengersCapacity +
                 '}');
     }
-
+//Change method name
+    //Change object name
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -29,7 +31,7 @@ public class PassengerPlane extends Plane{
         PassengerPlane plane = (PassengerPlane) o;
         return passengersCapacity == plane.passengersCapacity;
     }
-
+//Change method name
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), passengersCapacity);
