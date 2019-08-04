@@ -1,14 +1,14 @@
+// version: 1.1
+// made by Vitali Shulha
+// 4-Jan-2019
+package airportrunner;
+
 import models.MilitaryType;
 import planes.ExperimentalPlane;
 import planes.MilitaryPlane;
 import planes.PassengerPlane;
 import planes.Plane;
-
 import java.util.*;
-
-// version: 1.1
-// made by Vitali Shulha
-// 4-Jan-2019
 
 public class Airport {
     private List<? extends Plane> planes;
@@ -27,7 +27,7 @@ public class Airport {
         return passengerPlanes;
     }
 
-    public List<MilitaryPlane> getMilitaryPlanes() {
+    public  List<MilitaryPlane> getMilitaryPlanes() {
         List<MilitaryPlane> militaryPlanes = new ArrayList<>();
         for (Plane plane : planes) {
             if (plane instanceof MilitaryPlane) {
@@ -67,7 +67,6 @@ public class Airport {
             }
         }
         return bomberMilitaryPlanes;
-
     }
 
     public List<ExperimentalPlane> getExperimentalPlanes() {
@@ -81,46 +80,33 @@ public class Airport {
     }
 
     public Airport sortByMaxDistance() {
-        planes.sort(new Comparator<Plane>() {
-                        public int compare(Plane planeWithGreaterDistance, Plane planeWithLowerDistance) {
-                            return planeWithGreaterDistance.getMaxFlightDistance() - planeWithLowerDistance.getMaxFlightDistance();
-                        }
-                    }
+        planes.sort((Comparator<Plane>)
+                (planeWithGreaterDistance, planeWithLowerDistance) -> planeWithGreaterDistance.getMaxFlightDistance() - planeWithLowerDistance.getMaxFlightDistance()
         );
         return this;
     }
 
     public Airport sortByMaxSpeed() {
-        planes.sort(new Comparator<Plane>() {
-                        public int compare(Plane planeWithFastestSpeed, Plane planeWithSlowerSpeed) {
-                            return planeWithFastestSpeed.getMaxSpeed() - planeWithSlowerSpeed.getMaxSpeed();
-                        }
-                    }
+        planes.sort((Comparator<Plane>)
+                (planeWithFastestSpeed, planeWithSlowerSpeed) -> planeWithFastestSpeed.getMaxSpeed() - planeWithSlowerSpeed.getMaxSpeed()
         );
         return this;
     }
 
     public Airport sortByMaxLoadCapacity() {
-        planes.sort(new Comparator<Plane>() {
-            public int compare(Plane planeWithGreaterCapacity, Plane planeWithLowerCapacity) {
-                return planeWithGreaterCapacity.getMaxLoadCapacity() - planeWithLowerCapacity.getMaxLoadCapacity();
-            }
-        });
+        planes.sort((Comparator<Plane>)
+                (planeWithGreaterCapacity, planeWithLowerCapacity) -> planeWithGreaterCapacity.getMaxLoadCapacity() - planeWithLowerCapacity.getMaxLoadCapacity()
+        );
         return this;
     }
-
-    private void print(Collection<? extends Plane> collection) {
-        Iterator<? extends Plane> iterator = collection.iterator();
-        while (iterator.hasNext()) {
-            Plane plane = iterator.next();
-            System.out.println(plane);
-        }
-    }
-
     @Override
     public String toString() {
         return "Airport{" +
                 "Planes=" + planes.toString() +
                 '}';
+    }
+
+    public List<Plane> getPlanes() {
+        return (List<Plane>) planes;
     }
 }

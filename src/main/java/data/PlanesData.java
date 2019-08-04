@@ -1,3 +1,5 @@
+package data;
+
 import models.MilitaryType;
 import planes.MilitaryPlane;
 import planes.PassengerPlane;
@@ -7,7 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PlanesData {
-    static List<Plane> planes = Arrays.asList(
+
+    public static final List<Plane> planes = Arrays.asList(
             new PassengerPlane("Boeing-737", 900, 12000, 60500, 164),
             new PassengerPlane("Boeing-737-800", 940, 12300, 63870, 192),
             new PassengerPlane("Boeing-747", 980, 16100, 70500, 242),
@@ -23,4 +26,6 @@ public class PlanesData {
             new MilitaryPlane("F-22", 1550, 13000, 11000, MilitaryType.FIGHTER),
             new MilitaryPlane("C-130 Hercules", 650, 5000, 110000, MilitaryType.TRANSPORT)
     );
+    public static final PassengerPlane planeWithMaxPassengerCapacity = new PassengerPlane("Boeing-747", 980, 16100, 70500, 242);
+
 }
