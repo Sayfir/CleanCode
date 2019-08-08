@@ -1,6 +1,4 @@
-// version: 1.1
-// made by Vitali Shulha
-// 4-Jan-2019
+
 package airportrunner;
 
 import models.MilitaryType;
@@ -8,7 +6,10 @@ import planes.ExperimentalPlane;
 import planes.MilitaryPlane;
 import planes.PassengerPlane;
 import planes.Plane;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class Airport {
     private List<? extends Plane> planes;
